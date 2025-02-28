@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrition Wellness</title>
+    <title>Nutrition Wellness Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
         
@@ -33,6 +34,7 @@
             justify-content: center;
             padding: 15px 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         nav a {
@@ -41,6 +43,27 @@
             margin: 0 25px;
             font-size: 1.1rem;
             font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #1b5e20;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #2e7d32;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         .cover {
@@ -80,7 +103,13 @@
             font-size: 1.1rem;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.3s;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cover-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-3px);
         }
         
         .section-title {
@@ -104,7 +133,7 @@
             background-color: #2e7d32;
         }
         
-        .tips, .quiz {
+        .tips, .quiz, .testimonials {
             padding: 100px 20px;
             text-align: center;
         }
@@ -127,11 +156,18 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 200px;
+            transform: translateY(0);
+        }
+        
+        .tip:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .tip i {
@@ -156,6 +192,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             max-width: 800px;
             margin: 0 auto 40px;
+            transition: all 0.3s;
+        }
+        
+        .question-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
         .question-card h2 {
@@ -191,6 +232,7 @@
             border: none;
             cursor: pointer;
             border-radius: 30px;
+            transition: all 0.3s;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
@@ -199,9 +241,19 @@
             color: white;
         }
         
+        .yes:hover {
+            background-color: #2e7d32;
+            transform: translateY(-3px);
+        }
+        
         .no {
             background-color: #e57373;
             color: white;
+        }
+        
+        .no:hover {
+            background-color: #c62828;
+            transform: translateY(-3px);
         }
         
         .joke {
@@ -213,6 +265,132 @@
             font-size: 1.1rem;
             font-weight: 500;
             color: #333;
+            animation: fadeIn 0.5s;
+        }
+        
+        /* Testimonials Styles */
+        .testimonials {
+            background-color: #f0f7f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '"';
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            font-size: 15rem;
+            color: rgba(46, 125, 50, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::after {
+            content: '"';
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            font-size: 8rem;
+            color: rgba(46, 125, 50, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e8f5e9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 1.8rem;
+            color: #2e7d32;
+        }
+        
+        .testimonial-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #2e7d32;
+        }
+        
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .testimonial-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .add-testimonial-btn {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        
+        .add-testimonial-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-3px);
         }
         
         footer {
@@ -236,6 +414,16 @@
         .social-icons a {
             color: white;
             font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         @media (max-width: 768px) {
@@ -251,7 +439,7 @@
                 font-size: 2rem;
             }
             
-            .question-card {
+            .question-card, .testimonial-card {
                 padding: 25px;
             }
             
@@ -262,6 +450,10 @@
             
             .quiz-btn {
                 width: 80%;
+            }
+            
+            .testimonials-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -277,7 +469,18 @@
             const jokeElement = document.getElementById('joke' + question);
             jokeElement.innerText = jokes[question][answer];
             jokeElement.style.display = 'block';
-         }
+            jokeElement.classList.add('animate__animated', 'animate__fadeIn');
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.querySelector('nav').style.padding = '10px 0';
+                document.querySelector('nav').style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                document.querySelector('nav').style.padding = '15px 0';
+                document.querySelector('nav').style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
     </script>
 </head>
 <body>
@@ -285,24 +488,29 @@
         <a href="#home"><i class="fas fa-home"></i> Home</a>
         <a href="#tips"><i class="fas fa-lightbulb"></i> Nutrition Hacks</a>
         <a href="#quiz"><i class="fas fa-clipboard-check"></i> Wellness Check</a>
+        <a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a>
     </nav>
     
-    <section id="home" class="cover">
+    <div id="home" class="cover">
         <h1>Nourish Your Body, Elevate Your Life</h1>
         <p>Discover simple nutrition hacks that can transform your health and well-being</p>
         <button class="cover-btn" onclick="document.getElementById('tips').scrollIntoView({behavior: 'smooth'})">Explore Nutrition Hacks</button>
-    </section>
+    </div>
     
     <div id="tips" class="tips">
         <h2 class="section-title">Nutrition Hacks</h2>
         <div class="tips-container">
             <div class="tip">
+                <i class="fas fa-sort-amount-down"></i>
+                <p class="tip-text">Eat foods in the right order</p>
+            </div>
+            <div class="tip">
                 <i class="fas fa-leaf"></i>
                 <p class="tip-text">Add a green starter to all your meals</p>
             </div>
             <div class="tip">
-                <i class="fas fa-calculator"></i>
-                <p class="tip-text">Practice mindful eating to enhance digestion and develop a healthier relationship with food</p>
+                <i class="fas fa-chart-line"></i>
+                <p class="tip-text">Flatten your breakfast curve</p>
             </div>
             <div class="tip">
                 <i class="fas fa-cookie"></i>
@@ -313,12 +521,20 @@
                 <p class="tip-text">Pick dessert over a sweet snack</p>
             </div>
             <div class="tip">
+                <i class="fas fa-wine-bottle"></i>
+                <p class="tip-text">Reach for vinegar before you eat</p>
+            </div>
+            <div class="tip">
                 <i class="fas fa-walking"></i>
                 <p class="tip-text">After you eat, move</p>
             </div>
             <div class="tip">
                 <i class="fas fa-cheese"></i>
                 <p class="tip-text">If you have to snack, go savoury</p>
+            </div>
+            <div class="tip">
+                <i class="fas fa-bread-slice"></i>
+                <p class="tip-text">Put some clothes on your carbs</p>
             </div>
         </div>
     </div>
@@ -372,8 +588,91 @@
         </div>
     </div>
     
-    <footer>
+    <div id="testimonials" class="testimonials">
+        <h2 class="section-title">Real Stories, Real Results</h2>
         
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h3>Sarah J.</h3>
+                        <p>Busy Mom of Three</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "I tried putting clothes on my carbs like the website suggested. My pasta now wears a little broccoli hat and spinach pants."
+                </div>
+                <div class="testimonial-footer">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-date">January 15, 2025</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h3>Dave K.</h3>
+                        <p>Office Manager & Secret Foodie</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "I've been trying to 'flatten my breakfast curve' but my pancakes keep coming out round."
+                </div>
+                <div class="testimonial-footer">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="testimonial-date">January 27, 2025</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h3>Carlos M.</h3>
+                        <p>Professional Snacker</p>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "I followed the 'if you have to snack, go savory' advice. Replaced my chocolate with cheese."
+                </div>
+                <div class="testimonial-footer">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-date">December 17, 2024</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="add-testimonial-btn">Share Your Story</button>
+    </div>
+    
+    <footer>
+        <p>© 2025 Nutrition Wellness Hub. All rights reserved.</p>
         <p>Empowering healthier lives through simple nutrition choices.</p>
         <div class="social-icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
