@@ -44,3 +44,28 @@ window.addEventListener('scroll', function() {
 document.querySelector('.add-testimonial-btn')?.addEventListener('click', function() {
     alert('Testimonial submission feature coming soon!');
 });
+
+// Lottie Animation Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const lottieContainer = document.getElementById('lottie-container');
+    const tipsSection = document.getElementById('tips');
+
+    // Intersection Observer to detect when tips section is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Delay the animation by 2 seconds
+                setTimeout(() => {
+                    lottieContainer.classList.add('animate');
+                }, 2000);
+            } else {
+                lottieContainer.classList.remove('animate');
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when at least 10% of the section is visible
+    });
+
+    // Start observing the tips section
+    observer.observe(tipsSection);
+});
