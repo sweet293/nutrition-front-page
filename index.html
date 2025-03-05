@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script src="nutrition.js" defer></script>
+    
 </head>
 <body>
     <nav>
@@ -25,6 +27,21 @@
     
     <div id="tips" class="tips">
         <h2 class="section-title">Nutrition Hacks</h2>
+
+        <!-- Add Lottie animation container -->
+        <div id="lottie-container" class="lottie-animation">
+            <dotlottie-player 
+                src="https://lottie.host/d5b9119d-241a-4c35-b585-4ae686a1e708/xo6B7UHnJg.lottie" 
+                background="transparent" 
+                speed="1" 
+                style="width: 100px; height: 100px;" 
+                loop 
+                autoplay>
+            </dotlottie-player>
+        </div>
+        
+        
+
         <div class="tips-container">
             <div class="tip">
                 <i class="fas fa-sort-amount-down"></i>
