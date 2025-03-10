@@ -45,11 +45,13 @@ document.querySelector('.add-testimonial-btn')?.addEventListener('click', functi
     alert('Testimonial submission feature coming soon!');
 });
 
-// Lottie Animation Functionality
+// Lottie Animation Hover Functionality
 document.addEventListener('DOMContentLoaded', () => {
     const lottieContainer = document.getElementById('lottie-container');
+    const hoverMessage = document.getElementById('hover-message');
+    const lottiePlayer = document.querySelector('dotlottie-player');
     const tipsSection = document.getElementById('tips');
-
+    
     // Intersection Observer to detect when tips section is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -65,7 +67,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {
         threshold: 0.1 // Trigger when at least 10% of the section is visible
     });
-
+    
     // Start observing the tips section
     observer.observe(tipsSection);
+    
+    // Handle hover on the lottie player
+    lottieContainer.addEventListener('mouseenter', () => {
+        // Show the bubble
+        hoverMessage.classList.add('show');
+        
+        // Start tracking the mascot
+        trackMascot();
+    });
+    
+    lottieContainer.addEventListener('mouseleave', () => {
+        // Hide the bubble when leaving
+        hoverMessage.classList.remove('show');
+    });
+    
+    function trackMascot() {
+        // If we're not hovering, don't track
+        if (!hoverMessage.classList.contains('show')) return;
+        
+        const playerRect = lottiePlayer.getBoundingClientRect();
+        const containerRect = lottieContainer.getBoundingClientRect();
+        
+        // Calculate position based on the current position of the animated element
+        // This is an approximation since the exact position depends on the animation state
+        const offsetX = (playerRect.left + playerRect.width/2) - containerRect.left;
+        
+        // Position the bubble above the mascot
+        hoverMessage.style.left = `${offsetX}px`;
+        hoverMessage.style.top = '-30px'; // Position above the mascot
+        
+        // Continue tracking
+        requestAnimationFrame(trackMascot);
+    }
 });
