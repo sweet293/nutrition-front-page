@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutrition Wellness Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="index.css">
@@ -19,14 +20,18 @@
         <a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a>
     </nav>
     
-    <div id="home" class="cover">
-        <h1>Nourish Your Body, Elevate Your Life</h1>
-        <p>Discover simple nutrition hacks that can transform your health and well-being</p>
-        <button class="cover-btn" onclick="document.getElementById('tips').scrollIntoView({behavior: 'smooth'})">Explore Nutrition Hacks</button>
+     <!-- Hero Section -->
+     <div id="home" class="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center px-4" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fruitsunsplash.jpg')">
+        <h1 class="font-playfair text-4xl md:text-6xl font-bold mb-6 shadow-text">Nourish Your Body, Elevate Your Life</h1>
+        <p class="text-xl md:text-2xl max-w-3xl mb-8 opacity-90">Discover simple nutrition hacks that can transform your health and well-being</p>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg" onclick="document.getElementById('tips').scrollIntoView({behavior: 'smooth'})">
+            Explore Nutrition Hacks
+        </button>
     </div>
     
-    <div id="tips" class="tips">
-        <h2 class="section-title">Nutrition Hacks</h2>
+    <!-- Nutrition Hacks Section -->
+    <div id="tips" class="py-24 px-4 bg-gray-100">
+        <h2 class="font-playfair text-4xl text-center text-primary mb-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded-full pb-4">Nutrition Hacks</h2>
 
         <!-- Add Lottie animation container -->
         <div id="lottie-container" class="lottie-animation">
@@ -34,108 +39,118 @@
                 src="https://lottie.host/d5b9119d-241a-4c35-b585-4ae686a1e708/xo6B7UHnJg.lottie" 
                 background="transparent" 
                 speed="1" 
-                style="width: 100px; height: 100px;" 
+                style="width: 150px; height: 150px;" 
                 loop 
                 autoplay>
             </dotlottie-player>
-            <div id="hover-message">This is water running to you</div>
-        </div>
-        </div>
-        
-                <!-- Hidden message -->
-        
 
-        <div class="tips-container">
-            <div class="tip">
-                <i class="fas fa-sort-amount-down"></i>
-                <p class="tip-text">Eat foods in the right order</p>
+            <div id="hover-message" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary bg-opacity-90 text-white px-4 py-2 rounded-xl text-sm whitespace-nowrap opacity-0 invisible transition-opacity duration-300 z-10 after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-t-primary after:border-opacity-90">
+                This is water running to you
             </div>
-            <div class="tip">
-                <i class="fas fa-leaf"></i>
-                <p class="tip-text">Add a green starter to all your meals</p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-sort-amount-down text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Eat foods in the right order</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-chart-line"></i>
-                <p class="tip-text">Flatten your breakfast curve</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-leaf text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Add a green starter to all your meals</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-cookie"></i>
-                <p class="tip-text">Have any type of sugar you like – they're all the same</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-chart-line text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Flatten your breakfast curve</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-ice-cream"></i>
-                <p class="tip-text">Pick dessert over a sweet snack</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-cookie text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Have any type of sugar you like – they're all the same</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-wine-bottle"></i>
-                <p class="tip-text">Reach for vinegar before you eat</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-ice-cream text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Pick dessert over a sweet snack</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-walking"></i>
-                <p class="tip-text">After you eat, move</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-wine-bottle text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Reach for vinegar before you eat</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-cheese"></i>
-                <p class="tip-text">If you have to snack, go savoury</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-walking text-4xl mb-4"></i>
+                <p class="text-xl font-medium">After you eat, move</p>
             </div>
-            <div class="tip">
-                <i class="fas fa-bread-slice"></i>
-                <p class="tip-text">Put some clothes on your carbs</p>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-cheese text-4xl mb-4"></i>
+                <p class="text-xl font-medium">If you have to snack, go savoury</p>
+            </div>
+            
+            <div class="bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg p-8 min-h-[200px] flex flex-col items-center justify-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <i class="fas fa-bread-slice text-4xl mb-4"></i>
+                <p class="text-xl font-medium">Put some clothes on your carbs</p>
             </div>
         </div>
     </div>
     
-    <div id="quiz" class="quiz">
-        <h2 class="section-title">Wellness Check</h2>
+    <div id="quiz" class="py-24 px-4 bg-white">
+        <h2 class="font-playfair text-4xl text-center text-primary mb-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded-full pb-4">Wellness Check</h2>
         
-        <div class="question-card">
-            <h2><i class="fas fa-tint"></i> Did you drink at least 1L of water today?</h2>
-            <div class="btn-container">
-                <button class="quiz-btn yes" onclick="showJoke(1, 'yes')">Yes</button>
-                <button class="quiz-btn no" onclick="showJoke(1, 'no')">No</button>
+        <div class="max-w-3xl mx-auto space-y-8">
+            <div class="bg-white text-center rounded-2xl shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:opacity-50"><i class="fas fa-tint mr-2"></i> Did you drink at least 1L of water today?</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(1, 'yes')">Yes</button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(1, 'no')">No</button>
+                </div>
+                <div id="joke1" class="hidden mt-6 p-4 bg-gray-100 rounded-lg text-lg font-medium text-gray-800"></div>
             </div>
-            <div id="joke1" class="joke"></div>
-        </div>
 
-        <div class="question-card">
-            <h2><i class="fas fa-carrot"></i> Did you eat enough vegetables today?</h2>
-            <div class="btn-container">
-                <button class="quiz-btn yes" onclick="showJoke(2, 'yes')">Yes</button>
-                <button class="quiz-btn no" onclick="showJoke(2, 'no')">No</button>
+            <div class="bg-white text-center  rounded-2xl shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:opacity-50"><i class="fas fa-carrot mr-2"></i> Did you eat enough vegetables today?</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(2, 'yes')">Yes</button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(2, 'no')">No</button>
+                </div>
+                <div id="joke2" class="hidden mt-6 p-4 bg-gray-100 rounded-lg text-lg font-medium text-gray-800"></div>
             </div>
-            <div id="joke2" class="joke"></div>
-        </div>
 
-        <div class="question-card">
-            <h2><i class="fas fa-bed"></i> Did you sleep at least 7 hours last night?</h2>
-            <div class="btn-container">
-                <button class="quiz-btn yes" onclick="showJoke(3, 'yes')">Yes</button>
-                <button class="quiz-btn no" onclick="showJoke(3, 'no')">No</button>
+            <div class="bg-white text-center rounded-2xl shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:opacity-50"><i class="fas fa-bed mr-2"></i> Did you sleep at least 7 hours last night?</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(3, 'yes')">Yes</button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(3, 'no')">No</button>
+                </div>
+                <div id="joke3" class="hidden mt-6 p-4 bg-gray-100 rounded-lg text-lg font-medium text-gray-800"></div>
             </div>
-            <div id="joke3" class="joke"></div>
-        </div>
 
-        <div class="question-card">
-            <h2><i class="fas fa-running"></i> Did you exercise today?</h2>
-            <div class="btn-container">
-                <button class="quiz-btn yes" onclick="showJoke(4, 'yes')">Yes</button>
-                <button class="quiz-btn no" onclick="showJoke(4, 'no')">No</button>
+            <div class="bg-white text-center rounded-2xl shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:opacity-50"><i class="fas fa-running mr-2"></i> Did you exercise today?</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(4, 'yes')">Yes</button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(4, 'no')">No</button>
+                </div>
+                <div id="joke4" class="hidden mt-6 p-4 bg-gray-100 rounded-lg text-lg font-medium text-gray-800"></div>
             </div>
-            <div id="joke4" class="joke"></div>
-        </div>
 
-        <div class="question-card">
-            <h2><i class="fas fa-brain"></i> Did you learn something new today?</h2>
-            <div class="btn-container">
-                <button class="quiz-btn yes" onclick="showJoke(5, 'yes')">Yes</button>
-                <button class="quiz-btn no" onclick="showJoke(5, 'no')">No</button>
+            <div class="bg-white text-center rounded-2xl shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl mb-6 text-gray-800 inline-block relative after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:opacity-50"><i class="fas fa-brain mr-2"></i> Did you learn something new today?</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(5, 'yes')">Yes</button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md" onclick="showJoke(5, 'no')">No</button>
+                </div>
+                <div id="joke5" class="hidden mt-6 p-4 bg-gray-100 rounded-lg text-lg font-medium text-gray-800"></div>
             </div>
-            <div id="joke5" class="joke"></div>
         </div>
     </div>
+    
     
     <div id="testimonials" class="testimonials">
-        <h2 class="section-title">Real Stories, Real Results</h2>
+        <h2 class="font-playfair text-4xl text-center text-primary mb-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded-full pb-4">Real Stories, Real Results</h2>
         
         <div class="testimonials-container">
             <div class="testimonial-card">
