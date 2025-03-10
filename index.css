@@ -598,7 +598,7 @@ footer p {
 
 /* Lottie Animation Styles */
 .lottie-animation {
-    width: 50%;
+    width: 100%;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -606,8 +606,8 @@ footer p {
     opacity: 0;
     transform: translateX(-100%);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    margin-top: 0; /* Remove top margin */
     margin-bottom: 0px;
+    position: relative;
 }
 
 .lottie-animation.animate {
@@ -618,13 +618,49 @@ footer p {
 /* Animation for walking across the page */
 @keyframes walk-across {
     from {
-        transform: translateX(-200%);
+        transform: translateX(-400%);
     }
     to {
-        transform: translateX(calc(300% + 300px));
+        transform: translateX(calc(200% + 100px));
     }
 }
 
 .lottie-animation dotlottie-player {
     animation: walk-across 10s linear infinite;
+}
+
+/* Hidden message/bubble */
+#hover-message {
+    position: absolute;
+    background: rgba(46, 125, 50, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 100;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Speech bubble arrow */
+#hover-message:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: rgba(46, 125, 50, 0.9) transparent transparent;
+}
+
+/* Show class for the bubble */
+.show {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
